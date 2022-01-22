@@ -1,7 +1,7 @@
 import pytwitter
 
 with open("bearer_token.txt", "r") as file:
-    bearer_token = file.readline()
+    bearer_token = file.readline().strip()
 
 api = pytwitter.Api(bearer_token=bearer_token)
 
