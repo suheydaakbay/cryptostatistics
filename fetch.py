@@ -1,4 +1,3 @@
-from nbformat import read
 import pytwitter
 
 with open("bearer_token.txt", "r") as file:
