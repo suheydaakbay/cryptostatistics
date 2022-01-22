@@ -3,9 +3,14 @@ import pytwitter
 with open("bearer_token.txt", "r") as file:
     bearer_token = file.readline().strip()
 
+with open("keywords.txt", "r") as file:
+    lines = file.readlines()
+    keywords = [line.strip() for line in lines]
+
 api = pytwitter.Api(bearer_token=bearer_token)
 
-query = api.search_tweets(query="lang:en (btc OR eth)")
+query_keywords = " OR ".join(keywords)
+query = api.search_tweets(query="lang:en (%s)" % (query_keywords))
 
 for tweet in query.data:
     print("---")
